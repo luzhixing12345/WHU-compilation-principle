@@ -23,8 +23,14 @@
 > 如果直接找答案的话下载对应文件即可,不想被看出来抄的太明显就改改空格缩进变量名,不过似乎没什么发挥空间~
 
 - [assignment01解析](assignment01/README.md)
-  - [retinf.c下载]
+  - [retinf.c下载](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.1/retinf.c)
+
+- [exercise22_01答案](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.1/exercises22_01_an.pdf)
 
 ## 其他资料
 
 - [龙书第二版下载](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.2/dragon-book.pdf)
+
+## 正文: 编译原理学习
+
+- []
