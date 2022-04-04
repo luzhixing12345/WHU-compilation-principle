@@ -3,9 +3,15 @@
 # EOF (end-of-file) token is used to indicate that
 # there is no more input left for lexical analysis
 
-INTEGER,EOF = 'INTEGER','EOF'
+
+
+INTEGER, EOF = 'INTEGER','EOF'
+
 PLUS = 'PLUS'
 MINUS = 'MINUS'
+MULT = 'MULT'
+DIV = 'DIV'
+
 
 class Token(object):
     def __init__(self, type, value):
@@ -72,6 +78,14 @@ class Interpreter(object):
             token = Token(MINUS,'-')
             self.pos+=1
             return token
+        elif current_char=='*':
+            token = Token(MULT,'*')
+            self.pos+=1
+            return token
+        elif current_char=='/':
+            token = Token(DIV,'/')
+            self.pos+=1
+            return token
         elif current_char.isdigit():
             end_pos = self.pos
             while end_pos<len(text) and text[end_pos].isdigit():
@@ -102,32 +116,26 @@ class Interpreter(object):
         left = self.current_token
         self.eat(INTEGER)
 
-        # we expect the current token to be a '+' token
-        op = self.current_token
-        if op.value=='+':
-            self.eat(PLUS)
-        elif op.value=='-':
-            self.eat(MINUS)
-        else:
-            self.error()
-        # we expect the current token to be a single-digit integer
-        right = self.current_token
-        self.eat(INTEGER)
-        # after the above call the self.current_token is set to
-        # EOF token
+        while self.current_token.type!=EOF:
+            op = self.current_token
+            self.eat(op.type)
+            
+            right = self.current_token
+            self.eat(INTEGER)
 
-        # at this point INTEGER PLUS INTEGER sequence of tokens
-        # has been successfully found and the method can just
-        # return the result of adding two integers, thus
-        # effectively interpreting client input
-        if op.value=='+':
-            result = left.value + right.value
-            return result
-        elif op.value=='-':
-            result = left.value - right.value
-            return result
-        else:
-            self.error()
+
+            if op.type==PLUS:
+                left.value = left.value + right.value
+            
+            elif op.type==MINUS:
+                left.value = left.value - right.value
+            
+            elif op.type==MULT:
+                left.value = left.value*right.value
+            elif op.type==DIV:
+                left.value = left.value//right.value
+        return left.value
+                
 
 def main():
     while True:
