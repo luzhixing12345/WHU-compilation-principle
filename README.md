@@ -32,6 +32,4 @@
 - [龙书第二版下载](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.2/dragon-book.pdf)
 - [龙书习题解答](https://github.com/fool2fish/dragon-book-exercise-answers),不过看已经六年没commit了,issue一堆也没人管,可惜
 
-## 正文: 编译原理学习
-
-- []
+## 正文: [编译原理学习](learning-part/README.md)
