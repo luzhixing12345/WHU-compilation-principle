@@ -149,10 +149,15 @@ def main():
             continue
         interpreter = Interpreter(text)
         result = interpreter.expr()
+        
+        # use the following print if you want to check the output in this python file
+        # print('output =',result)
         print("output =",result,end='')
         if result == cnt:
             print(f' ({chr(0x2713)})')
             correctness+=1
+        else :
+            print(f' ({chr(0x2717)})')
         cnt+=1
     print(f'\n{correctness}/{cnt-1}')
 

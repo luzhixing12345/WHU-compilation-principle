@@ -44,7 +44,7 @@ token* get_next_token(const std::string &statement, int *pointer) {
             (*pointer)++;
             break;
         default:
-            t->type = INTERGER;
+            t->type = INTEGER;
             t->value = term(statement, pointer);
             break;
     }

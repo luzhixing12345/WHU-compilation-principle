@@ -18,7 +18,7 @@
 #define MULT '*'
 #define DIV '/'
 #define SPACE ' '
-#define INTERGER 'I'
+#define INTEGER 'I'
 
 struct token{
     char type;

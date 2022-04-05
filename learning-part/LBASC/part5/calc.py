@@ -5,6 +5,8 @@
 INTEGER, MUL, DIV, EOF = 'INTEGER', 'MUL', 'DIV', 'EOF'
 PLUS = 'PLUS'
 MINUS = 'MINUS'
+LP = 'LP'
+RP = 'RP'
 
 class Token(object):
     def __init__(self, type, value):
@@ -91,6 +93,14 @@ class Lexer(object):
                 self.advance()
                 return Token(MINUS, '-')
 
+            if self.current_char == '(':
+                self.advance()
+                return Token(LP, '(')
+
+            if self.current_char == ')':
+                self.advance()
+                return Token(RP, ')')
+
             self.error()
 
         return Token(EOF, None)
@@ -118,15 +128,30 @@ class Interpreter(object):
     def factor(self):
         """Return an INTEGER token value.
 
-        factor : INTEGER
+        factor : INTEGER | LP expr RP
         """
         token = self.current_token
-        self.eat(INTEGER)
-        return token.value
+        if token.type == LP:
+            self.eat(LP)
+            result = self.expr()
+            self.eat(RP)
+        elif token.type == INTEGER:
+            result = token.value
+            self.eat(INTEGER)
+        elif token.type == PLUS:
+            self.eat(PLUS)
+            result = self.factor()
+        elif token.type == MINUS:
+            self.eat(MINUS)
+            result = -self.factor()
+        else:
+            self.error()
+        #self.eat(INTEGER)
+        return result
 
-    def factor1(self):
+    def term(self):
         '''
-        factor1: factor ((PLUS | MINUS) factor)*
+        term: factor ((PLUS | MINUS) factor)*
         '''
         result = self.factor()
         
@@ -143,20 +168,20 @@ class Interpreter(object):
     def expr(self):
         """Arithmetic expression parser / interpreter.
 
-        expr   : factor1 ((MUL | DIV) factor1)*
-        factor1: factor ((PLUS | MINUS) factor)*
-        factor : INTEGER
+        expr   : term ((MUL | DIV) term)*
+        term: factor ((PLUS | MINUS) factor)*
+        factor : INTEGER |  LP expr RP
         """
-        result = self.factor1()
+        result = self.term()
         
         while self.current_token.type in (PLUS, MINUS):
             token = self.current_token
             if token.type == PLUS:
                 self.eat(PLUS)
-                result = result + self.factor1()
+                result = result + self.term()
             elif token.type == MINUS:
                 self.eat(MINUS)
-                result = result - self.factor1()
+                result = result - self.term()
 
         return result
 
@@ -176,7 +201,7 @@ def main():
         result = interpreter.expr()
         
         # use the following print if you want to check the output in this python file
-        # print('output =',result)
+        #print('output =',result)
         print('output =',result,end='')
         if cnt == result:
             correctness+=1

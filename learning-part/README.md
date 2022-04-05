@@ -12,15 +12,16 @@
 cd learning-part
 ```
 
+python执行
+
 ```python
-# 检验第一部分
 python test.py part1
 ```
 
-对于第三部分需要g++编译后执行
+part3/5需要g++编译后执行
 
 ```shell
-python test.py -c
+python test.py -c part3
 ```
 
 你也可以完成后使用我的测试文件和测试用例来验证你的代码,每一个测试结果的正确输出都是1-10

@@ -25,6 +25,8 @@ int main() {
         if (answer == cnt) {
             std::cout<<" (\u2714)\n";
             correctness++;
+        } else {
+            std::cout<<" (\u2717)\n";
         }
         cnt++;
     }
