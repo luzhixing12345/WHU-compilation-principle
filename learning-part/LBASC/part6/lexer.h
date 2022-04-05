@@ -37,7 +37,6 @@ public:
     token* get_next_token();
     void skip_whitespace();
     int get_integer();
-    //void debug_tools(token *t);
 private:
     const std::string &statement;
     int pointer;

@@ -25,14 +25,15 @@ class interpreter {
  
 */
 public:
-    explicit interpreter(const std::string &statement, lexer *lexer);
+    explicit interpreter(lexer *lexer);
     int expr();
     int term();
     int factor();
+    void advance();
 private:
     lexer lexer_;
     std::string statement_;
-
+    token *current_token_;
 };
 
 

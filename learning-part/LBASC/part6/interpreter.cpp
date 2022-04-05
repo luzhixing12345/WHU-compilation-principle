@@ -11,15 +11,20 @@
 #include "interpreter.h"
 #include "lexer.h"
 
-interpreter::interpreter(const std::string &statement, lexer *lexer) : lexer_(*lexer), statement_(statement) {}
+interpreter::interpreter(lexer *lexer) : lexer_(*lexer) {
+    current_token_ = lexer_.get_next_token();
+}
 
 int interpreter::expr() {
     int result = term();
-    while (lexer_.get_next_token() != nullptr) {
-        token *t = lexer_.get_next_token();
-        if (t->type == PLUS) {
+    std::cout<<"result: "<<result<<std::endl;
+    while (current_token_->type == PLUS || current_token_->type == MINUS) {
+        if (current_token_->type == PLUS) {
+            advance();
+            std::cout<<"current_token_->type: "<<current_token_->type<<std::endl;
             result += term();
-        } else if (t->type == MINUS) {
+        } else if (current_token_->type == MINUS) {
+            advance();
             result -= term();
         }
     }
@@ -28,11 +33,13 @@ int interpreter::expr() {
 
 int interpreter::term() {
     int result = factor();
-    while (lexer_.get_next_token() != nullptr) {
-        token *t = lexer_.get_next_token();
-        if (t->type == MULT) {
+    //std::cout<<"result: "<<result<<std::endl;
+    while (current_token_->type == MULT || current_token_->type == DIV) {
+        if (current_token_->type == MULT) {
+            advance();
             result *= factor();
-        } else if (t->type == DIV) {
+        } else if (current_token_->type == DIV) {
+            advance();
             result /= factor();
         }
     }
@@ -40,21 +47,30 @@ int interpreter::term() {
 }
 
 int interpreter::factor() {
-    token *t = lexer_.get_next_token();
+    token *t = current_token_;
+    //std::cout<<"t->type: "<<t->type<<std::endl;
     if (t->type == PLUS) {
+        advance();
         return factor();
     } else if (t->type == MINUS) {
+        advance();
         return -factor();
     } else if (t->type == INTEGER) {
-        return t->value;
+        int result = t->value;
+        //advance();
+        return result;
     } else if (t->type == LEFT_PARENTHESIS) {
+        advance();
         int result = expr();
-        t = lexer_.get_next_token();
-        if (t->type != RIGHT_PARENTHESIS) {
+        if (current_token_->type != RIGHT_PARENTHESIS) {
             throw "invalid syntax";
         }
+        advance();
         return result;
     }
     throw "invalid syntax";
 }
 
+void interpreter::advance() {
+    current_token_ = lexer_.get_next_token();
+}
