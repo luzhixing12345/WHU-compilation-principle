@@ -130,17 +130,23 @@ class Interpreter(object):
             self.error()
 
 def main():
+    cnt = 1
+    correctness = 0
     while True:
         text = input('calc> ')
+        print(text)
         if text=='END':
             break
-        print(text)
         if not text:
             continue
         interpreter = Interpreter(text)
         result = interpreter.expr()
-        print("output =",result)
-
+        print("output =",result,end='')
+        if result == cnt:
+            print(f' ({chr(0x2713)})')
+            correctness+=1
+        cnt+=1
+    print(f'\n{correctness}/{cnt-1}')
 
 if __name__ == '__main__':
     main()

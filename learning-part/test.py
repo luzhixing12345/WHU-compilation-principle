@@ -15,15 +15,18 @@ import os
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('part',nargs='?',default='part1',help='the part of the code to be tested')
-    parser.add_argument('--output','-o',action='store_true',help='output the result of the test')
+    parser.add_argument('--compile','-c',action='store_true',help='compile the cpp code')
     args = parser.parse_args()
     
-    test_example = 'learning-part/LBASC/'+args.part+'/test-example.txt'
-    test_file = 'learning-part/LBASC/'+args.part+'/calc.py'
-    output_file = 'learning-part/LBASC/'+args.part+'/output.txt'
-    if args.output:
-        os.system('python '+test_file+' < '+test_example+' > '+output_file)
-    else:
-        os.system('python '+test_file+' < '+test_example)
+    test_example = 'LBASC/'+args.part+'/test-example.txt'
+    test_file = 'LBASC/'+args.part+'/calc.py'
+    if args.compile:
+        os.system('g++ LBASC\\part3\\main.cpp LBASC\\part3\\interpreter.cpp -o LBASC\\part3\\main.exe ')
+        os.system('LBASC\\part3\\main.exe < '+test_example)
+    else :   
+        if args.part == "part3":
+            os.system('LBASC\\part3\\main.exe < '+test_example)
+        else:
+            os.system('python '+test_file+' < '+test_example)
     print('over')
     

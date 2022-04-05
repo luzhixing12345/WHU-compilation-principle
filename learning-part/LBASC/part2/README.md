@@ -6,6 +6,10 @@
 - [x] 扩展计算器以处理两个整数的除法
 - [x] 修改代码以解释包含任意数量的加法和减法的表达式，例如"9 - 5 + 3 + 11"
 
+correctness:
+
+![20220406020918](https://raw.githubusercontent.com/learner-lu/picbed/master/20220406020918.png)
+
 ## Q&A
 
 - 什么是词素？
