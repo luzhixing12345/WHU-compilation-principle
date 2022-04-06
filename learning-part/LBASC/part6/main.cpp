@@ -7,11 +7,12 @@
  *@Github: luzhixing12345
 */
 
-
+#include <windows.h>
 #include "interpreter.h"
 #include "lexer.h"
 
 int main() {
+    SetConsoleOutputCP(65001);
     std::string statement;
     int correctness = 0;
     int cnt = 1;

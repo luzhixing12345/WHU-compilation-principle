@@ -27,7 +27,7 @@ if __name__ == '__main__':
             os.system(f'g++ LBASC\\{args.part}\\main.cpp LBASC\\{args.part}\\interpreter.cpp -o LBASC\\{args.part}\\main.exe ')
         elif args.part == 'part6':
             os.system(f'g++ LBASC\\{args.part}\\main.cpp LBASC\\{args.part}\\interpreter.cpp LBASC\\{args.part}\\lexer.cpp -o LBASC\\{args.part}\\main.exe ')
-            os.system(f'LBASC\\{args.part}\\main.exe < '+test_example)
+        os.system(f'LBASC\\{args.part}\\main.exe < '+test_example)
     else :   
         if args.part in gcc_part:
             os.system(f'LBASC\\{args.part}\\main.exe < '+test_example)

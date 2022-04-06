@@ -21,7 +21,6 @@
 #define LEFT_PARENTHESIS '('
 #define RIGHT_PARENTHESIS ')'
 
-
 #include <iostream>
 #include <string>
 

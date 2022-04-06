@@ -128,7 +128,8 @@ class Interpreter(object):
     def factor(self):
         """Return an INTEGER token value.
 
-        factor : INTEGER | LP expr RP
+        factor : (PLUS | MINUS) factor | INTEGER | LP expr RP
+        
         """
         token = self.current_token
         if token.type == LP:
@@ -169,8 +170,7 @@ class Interpreter(object):
         """Arithmetic expression parser / interpreter.
 
         expr   : term ((MUL | DIV) term)*
-        term: factor ((PLUS | MINUS) factor)*
-        factor : INTEGER |  LP expr RP
+
         """
         result = self.term()
         

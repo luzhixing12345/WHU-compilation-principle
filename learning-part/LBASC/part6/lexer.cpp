@@ -15,7 +15,9 @@ token* lexer::get_next_token() {
     skip_whitespace();
     //std::cout<<"pointer: "<<pointer<<std::endl;
     if (pointer >= statement.length()) {
-        return nullptr;
+        // just a placeholder, no need to do anything
+        // but it can't be nullptr
+        return new token{'\0',0};
     }
     char c = statement[pointer];
     switch (c) {
@@ -45,16 +47,18 @@ token* lexer::get_next_token() {
 
 int lexer::get_integer() {
     int result = 0;
+    //std::cout<<"pointer_before: "<<pointer<<std::endl;
     while (pointer < statement.length() && isdigit(statement[pointer])) {
         result = result * 10 + statement[pointer] - '0';
         pointer++;
     }
-    std::cout<<"pointer: "<<pointer<<std::endl;
+    //std::cout<<"pointer_after: "<<pointer<<std::endl;
     return result;
 }
 
 void lexer::skip_whitespace() {
-    while (pointer <= statement.length() && isspace(statement[pointer])) {
+    while (pointer < statement.length() && isspace(statement[pointer])) {
+        //std::cout<<"skip_whitespace"<<std::endl;
         pointer++;
     }
 }
