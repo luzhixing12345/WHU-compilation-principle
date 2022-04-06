@@ -11,6 +11,10 @@
 
 correctness:
 
+```python
+python test.py part5
+```
+
 ![20220406043234](https://raw.githubusercontent.com/learner-lu/picbed/master/20220406043234.png)
 
 ## Q&A

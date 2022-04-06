@@ -27,6 +27,10 @@ g++ main.cpp interpreter.cpp -o main.exe
 
 correctness:
 
+```python
+python test.py -c part3
+```
+
 ![20220406034945](https://raw.githubusercontent.com/learner-lu/picbed/master/20220406034945.png)
 
 ## Q&A

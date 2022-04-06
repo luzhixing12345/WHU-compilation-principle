@@ -8,6 +8,10 @@
 
 correctness:
 
+```python
+python test.py part1
+```
+
 ![20220406020709](https://raw.githubusercontent.com/learner-lu/picbed/master/20220406020709.png)
 
 ## Q&A

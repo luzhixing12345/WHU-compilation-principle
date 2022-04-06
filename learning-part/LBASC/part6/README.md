@@ -8,4 +8,8 @@ c++ 实现,巩固记忆,支持加减乘除括号运算
 
 correctness:
 
-![20220406182953](https://raw.githubusercontent.com/learner-lu/picbed/master/20220406182953.png)
+```python
+python test.py -c part6
+```
+
+![20220407002435](https://raw.githubusercontent.com/learner-lu/picbed/master/20220407002435.png)
