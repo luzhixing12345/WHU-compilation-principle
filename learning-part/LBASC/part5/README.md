@@ -9,6 +9,8 @@
 
 除此之外,我觉得应该考虑到首个输入,如 `+8*7`,`-7+3`,所以完整的factor文法为`factor : (PLUS | MINUS) factor | INTEGER | LP expr RP`
 
+> 补: 一元运算符 这一部分会在part8中提到,我当时这里超前了,而且考虑的也不周全
+
 correctness:
 
 ```python
