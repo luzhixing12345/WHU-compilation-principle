@@ -13,8 +13,7 @@
 - [part5](LBASC/part5/README.md): 如何处理 `12+2*9/3+1`
 - [part6](LBASC/part6/README.md): 如何处理 `(1+2)*(3+4)`
 - [part7](LBASC/part7/README.md): 如何使用 抽象语法树(AST) 处理 `(1+2)*(3+4)`
-
-> 说来可笑,[assignment01](../assignment01/README.md)的作业在这里
+- [part8](LBASC/part8/README.md): 如何处理 `--+-3+4`
 
 我将我的解答放在了[LBASC](LBASC)中(part1-part17),同时为每一个阶段设计了一些测试用例`test-examples.txt`来检验是否有没考虑到的情况.
 
