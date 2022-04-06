@@ -18,7 +18,7 @@ python执行
 python test.py part1
 ```
 
-part3/5需要g++编译后执行
+part3/6需要g++编译后执行
 
 ```shell
 python test.py -c part3
