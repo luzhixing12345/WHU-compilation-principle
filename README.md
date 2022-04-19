@@ -18,6 +18,12 @@
 - [exercise22_01](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.1/exercises22_01.pdf)
 - [exercise22_02](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.1/exercises22_02.pdf)
 
+## 正文: [编译原理学习](learning-part/README.md)
+
+> 如果真的想了解编译原理相关知识,我觉得认真学习一下还是很有必要的,很多知识和思路还是很有趣的,很有借鉴意义的.
+>
+> 这一部分的学习过程不会很枯燥,生动的代码实例帮助你更好的学习,你也可以完整的书写一个解释器
+
 ## 答案
 
 > 如果直接找答案的话下载对应文件即可,不想被看出来抄的太明显就改改空格缩进变量名,不过似乎没什么发挥空间~
@@ -31,5 +37,3 @@
 
 - [龙书第二版下载](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.2/dragon-book.pdf)
 - [龙书习题解答](https://github.com/fool2fish/dragon-book-exercise-answers),不过看已经六年没commit了,issue一堆也没人管,可惜
-
-## 正文: [编译原理学习](learning-part/README.md)
