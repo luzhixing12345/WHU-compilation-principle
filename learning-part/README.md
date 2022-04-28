@@ -42,3 +42,7 @@ python test.py -c part3
 ## [手把手教你构建C语言编译器](https://lotabout.me/2015/write-a-C-interpreter-0/)
 
 号称用 4 个函数来实现了一个小的 C 语言编译器。它最让我震惊的是能够自举，即能自己编译自己。并且它用很少的代码就完成了一个功能相当完善的 C 语言编译器
+
+## 一些小工具
+
+- [求解FIRST集-FOLLOW集-SELECT集](some-tools/FIRST-FOLLOW-SELECT/README.md)
