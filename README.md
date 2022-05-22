@@ -1,31 +1,43 @@
 # 武汉大学弘毅学堂编译原理课程学习及作业
 
-> 本项目设立的目的为学习编译原理,如果~~因为各种原因来GitHub找答案恰好找到了~~想要直接抄答案的我也完全不反对,毕竟大三下大家时间都很紧,这个课我只能说懂得都懂.
->
-> 同时推荐LYZ学长的[编译原理作业](https://github.com/yunzhe99/ComplierTasks),给了我很大帮助
+**2019级的课程作业,后来的学弟学妹看到的话记得检查一下,可能会有部分出入**
 
-## 源文件下载
+我只能说,懂得都懂.
 
-### 代码作业
+不过我还是把解题思路放在了答案前面,还是建议先看一下解题思路,至少知道要干什么,现在有什么,怎么解决的.
 
-- [assignment01](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.1/assignment01.zip)
-- [assignment02](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.1/assignment02.zip)
-- [assignment03](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.1/assignment03.zip)
-- [assignment04](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.1/assignment04.zip)
+看完之后就可以下载答案了,小修小改就可以了
 
-### 手写作业
+## [源文件下载]()
 
-- [exercise22_01](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.1/exercises22_01.pdf)
-- [exercise22_02](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.1/exercises22_02.pdf)
+含assignment01~06, exercise22-01~03纸质作业
 
-## 答案
-
-> 如果直接找答案的话下载对应文件即可,不想被看出来抄的太明显就改改空格缩进变量名,不过似乎没什么发挥空间~
+## 解题思路和答案
 
 - [assignment01解析](assignment01/README.md)
+
   - [retinf.c下载](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.1/retinf.c)
 
 - [exercise22_01答案](https://github.com/luzhixing12345/compilation-principle/releases/download/v0.0.1/exercises22_01_an.pdf)
+- [exercise22_02答案]()
+
+## 结语
+
+最后在这里写一点想说的话吧,大三下匆匆而过,繁忙繁忙更是繁忙.
+
+编译原理,这门课很好,王汉飞老师很有水平,但是他没有教好,我没有学好.
+
+自学的话可以看看B站哈工大老师的编译原理课程,清晰明了,深入浅出.
+
+如果看完之后仍然感觉理解困难,做题吃力,不妨看看我的[博客](https://luzhixing12345.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/),算是一个初学者的学习历程吧
+
+感兴趣的话可以看看我的这个[仓库](https://github.com/luzhixing12345/LBASC),里面包含了我对编译原理的所有理解
+
+如果对这门课仍有一丝期待,不妨学着写一个编译器,也算是不虚此行了.
+
+最后,祝:保研者福星高照,考研者马到成功,就业者功成名就
+
+平安喜乐,顺遂无忧
 
 ## 其他资料
 
