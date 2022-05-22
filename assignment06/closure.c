@@ -200,11 +200,59 @@ CLOSURE *cbv_primitive(CLOSURE * clos)
 
 
 
-CLOSURE *eval_cbv(CLOSURE *clos)
-{
-  step++; /* step is define in type.c */
-  /* todo */
+CLOSURE *eval_cbv(CLOSURE *clos) {
+  AST *exp = clos->ast;
+  CLOSURE_LIST *env = clos->env;
+  CLOSURE *result;
+  int index = clos->index;
+  step++;
+  switch (exp->kind) {
+    case CONST: {
+      free_list(env);
+      clos->env = NULL;
+      return clos;
+    }
+    case VAR: {
+      if (exp->value <= 0) {
+        result = cbv_primitive(clos);
+        return result;
+      }
+      result = get_argument(exp->value, env, index);
+      free_clos(clos);
+      return result;
+    }
+    case ABS: {
+      return clos;
+    }
+    case COND: {
+      result = eval_cbv(clone_clos(make_clos(exp->cond, env, index)));
+      int value = result->ast->value;
+      if (value != 0) {
+        result = eval_cbv(clone_clos(make_clos(exp->lchild, env, index)));
+        free_clos(clos);
+        return result;
+      } else {
+        result = eval_cbv(clone_clos(make_clos(exp->rchild, env, index)));
+        free_clos(clos);
+        return result;
+      }
+    }
+    case APP: {
+      CLOSURE *temp1 = eval_cbv(clone_clos(make_clos(exp->lchild, env, index)));
+      CLOSURE *temp2 = eval_cbv(clone_clos(make_clos(exp->rchild, env, index)));
+      if (temp1->ast->kind == ABS) {
+        result = eval_cbv(clone_clos(make_clos(temp1->ast->rchild, make_list(temp2, temp1->env), index)));
+        free_clos(clos);
+        return result;
+      }
+    }
+    default: {
+      printf("Error!\n");
+    }
+  }
+  return 0;
 }
+
 
 void free_cbn_env(CBN_ENV *clos)
 {
@@ -267,8 +315,46 @@ void print_cbn_env( CBN_ENV * clos)
   printf("###\n");
 }
 
-CBN_ENV *eval_cbn(CBN_ENV *clos)
-{
+CBN_ENV *eval_cbn(CBN_ENV *clos) {
+  CLOSURE *closure = clos->cbn_env;
+  AST *exp = closure->ast;
+  CLOSURE_LIST *env = closure->env;
+  int index = closure->index;
+  CLOSURE_LIST *stack = clos->stack;
   step++;
-  /* todo */
+  switch (exp->kind) {
+    case CONST: {
+      env = NULL;
+      return clos;
+    }
+    case VAR: {
+      if (exp->value <= 0) {
+        return eval_cbn(make_cbn_env(cbn_primitive(closure), stack));
+      } else {
+        return eval_cbn(make_cbn_env(get_argument(exp->value, env, index), stack));
+      }
+    }
+    case ABS: {
+      if (stack != NULL) {
+        return eval_cbn(make_cbn_env(make_clos(exp->rchild, make_list(stack->clos, env), index), stack->next));
+      } else {
+        return clos;
+      }
+    }
+    case COND: {
+      CBN_ENV *temp = eval_cbn(make_cbn_env(make_clos(exp->cond, env, index), stack));
+      if (temp->cbn_env->ast->kind == CONST) {
+        int value = temp->cbn_env->ast->value;
+        if (value != 0)
+          return eval_cbn(make_cbn_env(make_clos(exp->lchild, env, index), stack));
+        else
+          return eval_cbn(make_cbn_env(make_clos(exp->rchild, env, index), stack));
+      }
+    }
+    case APP: {
+      return eval_cbn(make_cbn_env(make_clos(exp->lchild, env, index),
+                                   make_list(make_clos(exp->rchild, env, index), stack)));
+    }
+  }
+  return 0;
 }
