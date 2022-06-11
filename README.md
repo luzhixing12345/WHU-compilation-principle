@@ -13,7 +13,7 @@
 
 ## 期末考试-面向试卷复习
 
-编译原理相较于其他课程最大的一个特点就是期末考试的稳定性,我上传了[08-18级的10套期末考试试卷和答案](https://github.com/luzhixing12345/WHU-compilation-principle/releases/download/v0.0.2/final-exam-papers.zip),其中17级线上考试故没有试卷保留. 做两套你就可以很明显的观察到六道大题完全是换汤不换药,所以即使是一路摆烂摆过来的只要应付这六种题型,混一个成绩还是不成问题的
+编译原理相较于其他课程最大的一个特点就是**期末考试的稳定性**,我上传了[08-18级的10套期末考试试卷和答案](https://github.com/luzhixing12345/WHU-compilation-principle/releases/download/v0.0.2/final-exam-papers.zip),其中17级线上考试故没有试卷保留. 做两套你就可以很明显的观察到七道大题完全是换汤不换药,所以即使是一路摆烂摆过来的只要应付这七种题型,混一个成绩还是不成问题的
 
 非常幸运的是刚好在我们这一级有一位伟大的[黑大帅](https://space.bilibili.com/507099193)的一系列视频-编译原理混子速成-面向期末试卷复习,可以说是很nice了
 
